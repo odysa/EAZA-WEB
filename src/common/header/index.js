@@ -1,23 +1,11 @@
 import React, { Component } from "react";
-import { Layout } from "antd";
 import { SearchBox } from "./style";
 import { connect } from "react-redux";
 import { actionCreaters } from "./store/index";
 import Texty from "rc-texty";
 import { SearchWrapper, HeadWrapper } from "./style";
-import {
-  NavDropdown,
-  Nav,
-  Navbar,
-  NavItem,
-  Form,
-  Container,
-  FormControl,
-  NavbarBrand,
-  NavLink
-} from "react-bootstrap";
+import { Nav, Navbar, Form, NavLink } from "react-bootstrap";
 import { CSSTransition } from "react-transition-group";
-const { Header } = Layout;
 class Head extends Component {
   render() {
     const { handleInputFocus, handleInputBlur, focused } = this.props;
@@ -93,19 +81,19 @@ class Head extends Component {
   }
 }
 */
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    focused: state.getIn(["header", "focused"])
+    focused: state.getIn(["header", "focused"]),
   };
 };
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     handleInputFocus() {
       dispatch(actionCreaters.searchFocus());
     },
     handleInputBlur() {
       dispatch(actionCreaters.searchBlur());
-    }
+    },
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Head);

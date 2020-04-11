@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col, Layout } from "antd";
 import { OverPack } from "rc-scroll-anim";
-import { Jumbotron, Button, Card } from "react-bootstrap";
+import { Jumbotron, Card } from "react-bootstrap";
 import { connect } from "react-redux";
 import QueueAnim from "rc-queue-anim";
 import { ButtonCustom } from "./style";
@@ -28,7 +28,7 @@ class HomeContent extends Component {
               <Card.Img variant="top" src={url} />
               <Card.Body>
                 <div style={{ textAlign: "center" }}>
-                  <Card.Title>Aid your course search</Card.Title>
+                  <Card.Title>Aid your course serach</Card.Title>
                   <Card.Text>
                     Some features were built to help you explore courses!
                   </Card.Text>
@@ -38,17 +38,17 @@ class HomeContent extends Component {
                 </div>
               </Card.Body>
             </Card>
-            <OverPack style={{ overflow: "hidden", height: "50em" }}>
+            <OverPack style={{ overflow: "hidden", height: "45em" }}>
               <QueueAnim type="left" key="queue">
                 <Jumbotron key="banner1" style={{ background: "transparent" }}>
                   <Texty
-                    component="h1"
+                    component="h2"
                     type="bottom"
                     mode="sync"
                     delay={200}
                     duration={100}
                   >
-                    Search by Breaths
+                    Breath, now Breadth
                   </Texty>
                   <Texty component="p" type="right" mode="sync" delay={250}>
                     GPA is important.
@@ -69,13 +69,13 @@ class HomeContent extends Component {
                   >
                     <div style={{ textAlign: "right" }}>
                       <Texty
-                        component="h1"
+                        component="h2"
                         type="bottom"
                         mode="sync"
                         delay={200}
                         duration={100}
                       >
-                        Explore Courses
+                        Charts, More than Charts
                       </Texty>
                       <Texty component="p" type="right" mode="sync" delay={250}>
                         Life is hard.

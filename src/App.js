@@ -16,6 +16,7 @@ function App() {
           </Affix>
           <HomeContent key={2}></HomeContent>
         </QueueAnim>
+        <div style={{ height: 500 }}></div>
       </Provider>
     </div>
   );
