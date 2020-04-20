@@ -11,9 +11,12 @@ class SearchBox extends Component {
         placeholder="Search"
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
+        size="large"
         suffix={
-          <SearchOutlined className={focused ? "icon focused" : "icon"} />
+          <SearchOutlined
+            className={focused ? "icon focused" : "icon"} />
         }
+        style={{}}
         className={focused ? "normal focused" : "normal"}
       />
     );

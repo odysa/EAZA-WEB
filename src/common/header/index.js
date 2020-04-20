@@ -3,6 +3,7 @@ import { SearchBox } from "./style";
 import { connect } from "react-redux";
 import { actionCreaters } from "./store/index";
 import Texty from "rc-texty";
+import { Row, Col } from 'antd'
 import { SearchWrapper, HeadWrapper } from "./style";
 import { Nav, Navbar, Form, NavLink } from "react-bootstrap";
 import { CSSTransition } from "react-transition-group";
@@ -11,76 +12,54 @@ class Head extends Component {
     const { handleInputFocus, handleInputBlur, focused } = this.props;
     return (
       <HeadWrapper>
-        <Navbar
-          expand="sm"
-          sticky="top"
-          style={{ height: "80%", padding: "0 16px 0 16px" }}
-        >
-          <div style={{ width: "20%" }}></div>
-          <NavLink href="/" style={{ padding: "0 16px 0 16px" }}>
-            <Navbar.Brand style={{ color: "#c41d7f", fontSize: "30px" }}>
-              <Texty duration={1000} delay={200}>
-                E A Z A
+        <Row>
+          <Col xs={0} sm={0} md={2} lg={4} xl={4}></Col>
+          <Col xs={24} sm={24} md={20} lg={16} xl={16}>
+            <Navbar
+              expand="sm"
+              sticky="top"
+              style={{ height: "100%", padding: '0 .5rem' }}
+            >
+              <NavLink href="/" style={{ padding: "0 0 0 0" }}>
+                <Navbar.Brand style={{ color: "#c0392b", fontSize: "3em" }}>
+                  <Texty duration={1000} delay={200}>
+                    E A Z A
               </Texty>
-            </Navbar.Brand>
-          </NavLink>
-          <Navbar.Toggle
-            style={{ backgroundColor: "white" }}
-            aria-controls="basic-navbar-nav"
-          />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <div style={{ width: "10%" }}></div>
-            <Form inline style={{ width: "220px" }}>
-              <SearchWrapper>
-                <CSSTransition in={focused} timeout={200} classNames="slide">
-                  <SearchBox
-                    handleInputFocus={handleInputFocus}
-                    handleInputBlur={handleInputBlur}
-                  />
-                </CSSTransition>
-              </SearchWrapper>
-            </Form>
-          </Navbar.Collapse>
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav>
-              <Nav.Item>
-                <Nav.Link href="#home">Home</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="#link">Link</Nav.Link>
-              </Nav.Item>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+                </Navbar.Brand>
+              </NavLink>
+              <Navbar.Toggle
+                style={{ backgroundColor: "white" }}
+                aria-controls="basic-navbar-nav"
+              />
+              <Navbar.Collapse id="basic-navbar-nav" style={{}}>
+                <div style={{ width: 300 }}>
+                  <SearchWrapper>
+                    <CSSTransition in={focused} timeout={200} classNames="slide">
+                      <SearchBox
+                        style={{ background: 'black' }}
+                        handleInputFocus={handleInputFocus}
+                        handleInputBlur={handleInputBlur}
+                      />
+                    </CSSTransition>
+                  </SearchWrapper>
+                </div>
+              </Navbar.Collapse>
+              <Navbar.Collapse id="basic-navbar-nav" style={{ flexDirection: 'row-reverse' }}>
+                <Nav style={{ fontSize: 20 }}>
+                  <Nav.Link href="#home" style={{ color: '#7f7f7f' }}>Explore</Nav.Link>
+                  <Nav.Link href="#link" style={{ color: '#7f7f7f' }}>API</Nav.Link>
+                  <Nav.Link href="#link" style={{ color: '#7f7f7f' }}>API</Nav.Link>
+                </Nav>
+              </Navbar.Collapse>
+            </Navbar>
+          </Col>
+          <Col xs={0} sm={0} md={2} lg={4} xl={4}></Col>
+        </Row>
       </HeadWrapper>
     );
   }
 }
-/*
-class Head extends Component {
-  render() {
-    const { handleInputFocus, handleInputBlur } = this.props;
-    return (
-      <Header style={{ backgroundColor: "#262626" }}>
-        <Row>
-          <Col span={8}>
-            <Logo>E A Z A</Logo>
-          </Col>
-          <Col span={8}>
-            <SearchWrapper>
-              <SearchBox
-                handleInputFocus={handleInputFocus}
-                handleInputBlur={handleInputBlur}
-              />
-            </SearchWrapper>
-          </Col>
-          <Col span={8}></Col>
-        </Row>
-      </Header>
-    );
-  }
-}
-*/
+
 const mapStateToProps = (state) => {
   return {
     focused: state.getIn(["header", "focused"]),

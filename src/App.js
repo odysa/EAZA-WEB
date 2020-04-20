@@ -8,6 +8,7 @@ import QueueAnim from "rc-queue-anim";
 import "antd/dist/antd.css";
 function App() {
   return (
+    /*
     <div>
       <Provider store={store}>
         <QueueAnim delay={500}>
@@ -16,9 +17,10 @@ function App() {
           </Affix>
           <HomeContent key={2}></HomeContent>
         </QueueAnim>
-        <div style={{ height: 500 }}></div>
+
       </Provider>
-    </div>
+    </div>*/
+    <div></div>
   );
 }
 

@@ -12,22 +12,17 @@ class HomeContent extends Component {
   render() {
     return (
       <div>
-        <div style={{ height: "10px" }} />
-        <Row>
+        <Row style={{}}>
           <Col xs={0} sm={0} md={2} lg={4} xl={4}>
-            <Layout>
-              <Sider style={{ background: "red", width: "50%" }}></Sider>
-            </Layout>
           </Col>
           <Col xs={24} sm={24} md={20} lg={16} xl={16}>
             <Card
-              component="div"
-              style={{ width: "100%", height: "40em", border: "None" }}
+              style={{ width: "100%", height: "100%", border: "None" }}
               key="dis"
             >
-              <Card.Img variant="top" src={url} />
-              <Card.Body>
-                <div style={{ textAlign: "center" }}>
+              <Card.Img variant="top" src={url} style={{}} />
+              <Card.Body style={{ display: "block", flex: "None" }}>
+                <div style={{ textAlign: "center", display: "block" }}>
                   <Card.Title>Aid your course serach</Card.Title>
                   <Card.Text>
                     Some features were built to help you explore courses!
@@ -38,9 +33,16 @@ class HomeContent extends Component {
                 </div>
               </Card.Body>
             </Card>
-            <OverPack style={{ overflow: "hidden", height: "45em" }}>
+          </Col>
+          <Col xs={0} sm={0} md={2} lg={4} xl={4} ></Col>
+        </Row>
+        <Row>
+          <Col xs={0} sm={0} md={2} lg={4} xl={4} >
+          </Col>
+          <Col xs={24} sm={24} md={20} lg={16} xl={16}>
+            <OverPack style={{ overflow: "hidden", height: "60em" }}>
               <QueueAnim type="left" key="queue">
-                <Jumbotron key="banner1" style={{ background: "transparent" }}>
+                <Jumbotron key="banner1" style={{ background: "transparent", height: "50%" }}>
                   <Texty
                     component="h2"
                     type="bottom"
@@ -61,11 +63,11 @@ class HomeContent extends Component {
                   </p>
                 </Jumbotron>
               </QueueAnim>
-              <OverPack style={{ overflow: "hidden", height: "50em" }}>
+              <OverPack style={{ overflow: "hidden" }}>
                 <QueueAnim type="right" key="queue2">
                   <Jumbotron
                     key="banner2"
-                    style={{ background: "transparent" }}
+                    style={{ background: "transparent", height: "50%" }}
                   >
                     <div style={{ textAlign: "right" }}>
                       <Texty
@@ -92,7 +94,7 @@ class HomeContent extends Component {
               </OverPack>
             </OverPack>
           </Col>
-          <Col xs={0} sm={0} md={2} lg={4} xl={4}></Col>
+          <Col xs={0} sm={0} md={2} lg={4} xl={4} ></Col>
         </Row>
       </div>
     );
