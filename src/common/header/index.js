@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import { SearchBox } from "./style";
+import { SearchBox, NavLink } from "./style";
 import { connect } from "react-redux";
 import { actionCreaters } from "./store/index";
+import { Link } from 'react-router-dom'
 import Texty from "rc-texty";
 import { Row, Col } from 'antd'
 import { SearchWrapper, HeadWrapper } from "./style";
-import { Nav, Navbar, Form, NavLink } from "react-bootstrap";
+import { Nav, Navbar, Menu } from "react-bootstrap";
 import { CSSTransition } from "react-transition-group";
 class Head extends Component {
   render() {
-    const { handleInputFocus, handleInputBlur, focused } = this.props;
+    const { focused } = this.props;
     return (
       <HeadWrapper>
         <Row>
@@ -20,13 +21,13 @@ class Head extends Component {
               sticky="top"
               style={{ height: "100%", padding: '0 .5rem' }}
             >
-              <NavLink href="/" style={{ padding: "0 0 0 0" }}>
+              <Link to="/" style={{ padding: "0 0 0 0" }}>
                 <Navbar.Brand style={{ color: "#c0392b", fontSize: "3em" }}>
                   <Texty duration={1000} delay={200}>
                     E A Z A
               </Texty>
                 </Navbar.Brand>
-              </NavLink>
+              </Link>
               <Navbar.Toggle
                 style={{ backgroundColor: "white" }}
                 aria-controls="basic-navbar-nav"
@@ -35,20 +36,18 @@ class Head extends Component {
                 <div style={{ width: 300 }}>
                   <SearchWrapper>
                     <CSSTransition in={focused} timeout={200} classNames="slide">
-                      <SearchBox
-                        style={{ background: 'black' }}
-                        handleInputFocus={handleInputFocus}
-                        handleInputBlur={handleInputBlur}
-                      />
+                      <SearchBox />
                     </CSSTransition>
                   </SearchWrapper>
                 </div>
               </Navbar.Collapse>
               <Navbar.Collapse id="basic-navbar-nav" style={{ flexDirection: 'row-reverse' }}>
                 <Nav style={{ fontSize: 20 }}>
-                  <Nav.Link href="#home" style={{ color: '#7f7f7f' }}>Explore</Nav.Link>
-                  <Nav.Link href="#link" style={{ color: '#7f7f7f' }}>API</Nav.Link>
-                  <Nav.Link href="#link" style={{ color: '#7f7f7f' }}>API</Nav.Link>
+                  <NavLink to='/display'
+                    style={{ marginRight: '1.2rem' }}
+                  >API</NavLink>
+                  <NavLink to='/display'>About</NavLink>
+
                 </Nav>
               </Navbar.Collapse>
             </Navbar>

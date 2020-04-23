@@ -1,18 +1,33 @@
 import React, { Component } from "react";
-import { Row, Col, Layout } from "antd";
+import { Row, Col, Layout, Drawer } from "antd";
 import { OverPack } from "rc-scroll-anim";
 import { Jumbotron, Card } from "react-bootstrap";
 import { connect } from "react-redux";
 import QueueAnim from "rc-queue-anim";
 import { ButtonCustom } from "./style";
-import * as url from "./result.jpg";
+import * as url from "./result.jpeg";
 import Sider from "antd/lib/layout/Sider";
 import Texty from "rc-texty";
+import { NavLink } from "react-router-dom";
 class HomeContent extends Component {
+  state = { visible: false };
+  onClose = () => {
+    this.state.visible = false;
+  }
+  showDrawer = () => {
+    this.state.visible = true;
+  }
   render() {
     return (
       <div>
-        <Row style={{}}>
+        <Drawer
+          title="Basic Drawer"
+          placement="right"
+          closable={false}
+          onClose={this.onClose}
+          visible={this.state.visible}
+        ></Drawer>
+        <Row>
           <Col xs={0} sm={0} md={2} lg={4} xl={4}>
           </Col>
           <Col xs={24} sm={24} md={20} lg={16} xl={16}>
@@ -27,20 +42,24 @@ class HomeContent extends Component {
                   <Card.Text>
                     Some features were built to help you explore courses!
                   </Card.Text>
-                  <ButtonCustom variant="primary">
-                    Explore New Features
+                  <NavLink to='/display'>
+                    <ButtonCustom
+                      variant="primary"
+                    >
+                      Explore New Features
                   </ButtonCustom>
+                  </NavLink>
                 </div>
               </Card.Body>
             </Card>
           </Col>
-          <Col xs={0} sm={0} md={2} lg={4} xl={4} ></Col>
+          <Col xs={0} sm={0} md={2} lg={4} xl={4} />
         </Row>
         <Row>
-          <Col xs={0} sm={0} md={2} lg={4} xl={4} >
-          </Col>
+          <Col xs={0} sm={0} md={2} lg={4} xl={4} />
+
           <Col xs={24} sm={24} md={20} lg={16} xl={16}>
-            <OverPack style={{ overflow: "hidden", height: "60em" }}>
+            <OverPack style={{ overflow: "hidden", height: "48em" }}>
               <QueueAnim type="left" key="queue">
                 <Jumbotron key="banner1" style={{ background: "transparent", height: "50%" }}>
                   <Texty
@@ -59,7 +78,7 @@ class HomeContent extends Component {
                     Explore more possibilites.
                   </Texty>
                   <p>
-                    <ButtonCustom>Learn more</ButtonCustom>
+
                   </p>
                 </Jumbotron>
               </QueueAnim>
@@ -86,7 +105,7 @@ class HomeContent extends Component {
                         Don't waste your time.
                       </Texty>
                       <p>
-                        <ButtonCustom>Learn more</ButtonCustom>
+
                       </p>
                     </div>
                   </Jumbotron>
