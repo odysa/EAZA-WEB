@@ -1,7 +1,7 @@
 import * as constants from "./actionTypes";
 import { fromJS } from "immutable";
 import axios from 'axios';
-import { useCookies } from 'react-cookie';
+import  {url} from '../../../secure/index'
 import cookies from 'react-cookies';
 export const searchFocus = () => ({
   type: constants.SEARCH_FOCUS
@@ -17,7 +17,7 @@ export const searchCourse = (value, page) => {
       loading: true,
       courses: fromJS([]),
     })
-    axios.get('http://localhost:5000/v1/search?query=' + value + '&page=' + page)
+    axios.get(url+'search?query=' + value + '&page=' + page)
       .then(response => {
         let responseData = response.data.data;
         const result = {

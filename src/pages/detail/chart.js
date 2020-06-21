@@ -3,9 +3,9 @@ import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/title';
 import 'echarts/lib/chart/pie';
-const option = {
+var setOption = (grades) => ({
     title: {
-        text: 'Fall 2019',
+        text: grades.get('term'),
         x: 'center',
         y: 'top',
         fontSize: '5px'
@@ -26,32 +26,37 @@ const option = {
         {
             name: 'Grade',
             type: 'pie',
-            radius: '70%',
+            radius: '60%',
             center: ['50%', '50%'],
             data: [{
                 "name": 'A',
-                "value": 10
+                "value": grades.get('A') === 0 ? null : grades.get('A')
             },
             {
                 "name": 'AB',
-                "value": 18
+                "value": grades.get('AB') === 0 ? null : grades.get('AB')
             },
             {
                 "name": 'B',
-                "value": 15
+                "value": grades.get('B') === 0 ? null : grades.get('B')
             },
             {
                 "name": 'BC',
-                "value": 14
+                "value": grades.get('BC') === 0 ? null : grades.get('BC')
             },
             {
                 "name": 'C',
-                "value": 13
+                "value": grades.get('C') === 0 ? null : grades.get('C')
             },
             {
                 "name": 'D',
-                "value": 7
-            }].sort((a, b) => { return b.value - a.value; }),
+                "value": grades.get('D') === 0 ? null : grades.get('D')
+            },
+            {
+                "name": 'others',
+                "value": grades.get('others') === 0 ? null : grades.get('others')
+            },
+            ].sort((a, b) => { return b.value - a.value; }),
             emphasis: {
                 itemStyle: {
                     shadowBlur: 10,
@@ -74,16 +79,28 @@ const option = {
             }
         },
     ],
-};
+});
 
+var myChart = null;
 class Chart extends Component {
     componentDidMount() {
-        var myChart = echarts.init(document.getElementById('chart'));
-        myChart.setOption(option);
+        const { grades } = this.props
+        myChart = echarts.init(document.getElementById('chart'));
+        myChart.setOption(setOption(grades))
     }
-    render = () => (
-        <div id='chart' style={{ width: '400px', height: '300px' }}></div>
-    )
+    componentDidUpdate() {
+        const { grades } = this.props;
+        if (grades)
+            myChart.setOption(setOption(grades))
+    }
+    render = () => {
+        return (
+
+            < div id='chart' style={{ width: '100%', height: '500px' }} />
+
+        )
+    }
 }
+
 
 export default Chart;

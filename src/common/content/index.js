@@ -1,21 +1,19 @@
 import React, { Component } from "react";
-import { Row, Col, Layout, Drawer } from "antd";
+import { Row, Col, Drawer } from "antd";
 import { OverPack } from "rc-scroll-anim";
 import { Jumbotron, Card } from "react-bootstrap";
 import { connect } from "react-redux";
 import QueueAnim from "rc-queue-anim";
 import { ButtonCustom } from "./style";
-import * as url from "./result.jpeg";
-import Sider from "antd/lib/layout/Sider";
+import * as url from "./result.png";
 import Texty from "rc-texty";
-import { NavLink } from "react-router-dom";
+import * as p1 from './p1.jpg'
+import {MyLink} from "../header/style";
+import * as p3 from './p3.jpg'
 class HomeContent extends Component {
-  state = { visible: false };
+  values = { visible: false };
   onClose = () => {
-    this.state.visible = false;
-  }
-  showDrawer = () => {
-    this.state.visible = true;
+    this.values.visible = false;
   }
   render() {
     return (
@@ -25,7 +23,7 @@ class HomeContent extends Component {
           placement="right"
           closable={false}
           onClose={this.onClose}
-          visible={this.state.visible}
+          visible={this.values.visible}
         ></Drawer>
         <Row>
           <Col xs={0} sm={0} md={2} lg={4} xl={4}>
@@ -35,20 +33,20 @@ class HomeContent extends Component {
               style={{ width: "100%", height: "100%", border: "None" }}
               key="dis"
             >
-              <Card.Img variant="top" src={url} style={{}} />
+              <Card.Img variant="top" src={url} />
               <Card.Body style={{ display: "block", flex: "None" }}>
                 <div style={{ textAlign: "center", display: "block" }}>
                   <Card.Title>Aid your course serach</Card.Title>
                   <Card.Text>
                     Some features were built to help you explore courses!
                   </Card.Text>
-                  <NavLink to='/display'>
+                  <MyLink href='/intro/intro.html'>
                     <ButtonCustom
                       variant="primary"
                     >
-                      Explore New Features
+                      Introduction
                   </ButtonCustom>
-                  </NavLink>
+                  </MyLink>
                 </div>
               </Card.Body>
             </Card>
@@ -59,9 +57,10 @@ class HomeContent extends Component {
           <Col xs={0} sm={0} md={2} lg={4} xl={4} />
 
           <Col xs={24} sm={24} md={20} lg={16} xl={16}>
-            <OverPack style={{ overflow: "hidden", height: "48em" }}>
+            <OverPack style={{ overflow: "hidden", height: "60em" }}>
               <QueueAnim type="left" key="queue">
-                <Jumbotron key="banner1" style={{ background: "transparent", height: "50%" }}>
+                <Jumbotron key="banner1" style={{ background: "transparent", height: "50%",display:'flex',justifyContent:'space-around',alignItems:'center' }}>
+                  <div >
                   <Texty
                     component="h2"
                     type="bottom"
@@ -75,19 +74,23 @@ class HomeContent extends Component {
                     GPA is important.
                   </Texty>
                   <Texty component="p" type="right" mode="sync" delay={250}>
-                    Explore more possibilites.
+                    Explore more possibilities.
                   </Texty>
-                  <p>
-
-                  </p>
+                  </div>
+                  <div >
+                  <img src={p3} style={{width:'640px',height:'320px'}}/>
+                  </div>
                 </Jumbotron>
               </QueueAnim>
               <OverPack style={{ overflow: "hidden" }}>
                 <QueueAnim type="right" key="queue2">
                   <Jumbotron
                     key="banner2"
-                    style={{ background: "transparent", height: "50%" }}
+                    style={{ background: "transparent", height: "50%",display:'flex',justifyContent:'space-around',alignItems:'center'  }}
                   >
+                    <div>
+                      <img src={p1} style={{width:'640px',height:'320px'}}/>
+                    </div>
                     <div style={{ textAlign: "right" }}>
                       <Texty
                         component="h2"
@@ -104,16 +107,14 @@ class HomeContent extends Component {
                       <Texty component="p" type="right" mode="sync" delay={250}>
                         Don't waste your time.
                       </Texty>
-                      <p>
-
-                      </p>
                     </div>
+
                   </Jumbotron>
                 </QueueAnim>
               </OverPack>
             </OverPack>
           </Col>
-          <Col xs={0} sm={0} md={2} lg={4} xl={4} ></Col>
+          <Col xs={0} sm={0} md={2} lg={4} xl={4} />
         </Row>
       </div>
     );

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { SearchBox, NavLink } from "./style";
+import { SearchBox, MyLink } from "./style";
 import { connect } from "react-redux";
 import { actionCreaters } from "./store/index";
 import { Link } from 'react-router-dom'
 import Texty from "rc-texty";
 import { Row, Col } from 'antd'
 import { SearchWrapper, HeadWrapper } from "./style";
-import { Nav, Navbar, Menu } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 import { CSSTransition } from "react-transition-group";
 class Head extends Component {
   render() {
@@ -17,7 +17,7 @@ class Head extends Component {
           <Col xs={0} sm={0} md={2} lg={4} xl={4}></Col>
           <Col xs={24} sm={24} md={20} lg={16} xl={16}>
             <Navbar
-              expand="sm"
+              expand='md'
               sticky="top"
               style={{ height: "100%", padding: '0 .5rem' }}
             >
@@ -43,11 +43,9 @@ class Head extends Component {
               </Navbar.Collapse>
               <Navbar.Collapse id="basic-navbar-nav" style={{ flexDirection: 'row-reverse' }}>
                 <Nav style={{ fontSize: 20 }}>
-                  <NavLink to='/display'
+                  <MyLink href="/intro/intro.html"
                     style={{ marginRight: '1.2rem' }}
-                  >API</NavLink>
-                  <NavLink to='/display'>About</NavLink>
-
+                  >Introduction</MyLink>
                 </Nav>
               </Navbar.Collapse>
             </Navbar>

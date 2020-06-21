@@ -1,0 +1,1 @@
+export const url = 'https://www.eaza.cc/api/v1/';

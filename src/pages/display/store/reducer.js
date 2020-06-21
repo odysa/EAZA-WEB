@@ -3,12 +3,13 @@ import { fromJS } from "immutable";
 
 const defaultState = fromJS({
     value: '',
-    courses: [],
+    courses: fromJS([]),
     loading: false,
-    profs: [],
+    profs: fromJS([]),
     total: 0,
     page: 0,
-    breadths: []
+    breadths: [],
+    didSearch: false
 });
 
 export default (state = defaultState, action) => {
@@ -19,11 +20,14 @@ export default (state = defaultState, action) => {
                 total: action.total,
                 page: action.page,
                 value: action.value,
+                didSearch: action.didSearch
             });
         case constants.CLEAR_COURSE:
             return state.merge({
                 courses: action.courses,
-                loading: action.loading
+                loading: action.loading,
+                didSearch: action.didSearch,
+                profs: action.profs
             });
         case constants.SEARCH_DONE:
             return state.set("loading", action.loading);

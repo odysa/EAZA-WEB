@@ -1,15 +1,14 @@
 import React from "react";
 import { Layout } from '../display/style'
-import { Row, Col } from 'antd'
 import SearchBoard from '../../component/searchBoard'
 const { Sider } = Layout
 var MultiSearch = (props) => (
     <Layout>
         <Sider
-            width={250}
+            width={'12rem'}
             style={{ background: '#f0f2f5', zIndex: '3' }}
             theme='light'
-            breakpoint='xl'
+            breakpoint='xxl'
             collapsedWidth='0'
         >
             <SearchBoard />

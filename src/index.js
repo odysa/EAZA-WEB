@@ -4,7 +4,6 @@ import "antd/dist/antd.css";
 import * as serviceWorker from "./serviceWorker";
 import './utils/bootstrap.min.css'
 import Router from './router'
-import Detail from './pages/detail'
 ReactDOM.render(<Router />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change

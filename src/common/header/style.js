@@ -8,7 +8,13 @@ export const Logo = styled.a`
     color: #c41d7f;
   }
 `;
-
+export  const MyLink = styled.a`
+    color:#7f7f7f;
+  :hover {
+    color: #7f7f7f;
+    text-decoration: none;
+  }
+`
 export const SearchWrapper = styled.div`
 .ant-input-suffix {
     color: #7f7f7f;

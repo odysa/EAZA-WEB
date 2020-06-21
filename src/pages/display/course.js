@@ -1,20 +1,24 @@
 import React, { Component } from 'react'
 import { Card } from './style';
-import { Tag } from 'antd'
-
+import { Tag } from 'antd';
+import * as actionCreater from '../detail/store/actionCreater'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 class Course extends Component {
 
     render() {
-        const { abb, number, name, tags, grade } = this.props;
+        const { abb, number, name, tags, grade, handleClick, id } = this.props;
         return (
             <Card
                 bordered={false}
                 key={number + abb}
                 hoverable
-                title={abb + ' ' + number}
-                extra={grade ? 'A :' + ' ' + (grade * 100).toFixed(1) + '%' : 'None'}
+                title={abb.length < 27 ? abb + ' ' + number : abb.slice(0, 27) + '... ' + number}
+                extra={grade ? 'A :' + ' ' + (grade * 100).toFixed(1).toString() + '%' : 'None'}
+                onClick={() => { handleClick(id); this.props.history.push('/detail'); }}
             >
-                <Card.Meta title={name} />
+                {name}
+                <br />
                 {tags.map((x, key) => {
                     return (
                         <Tag
@@ -27,4 +31,11 @@ class Course extends Component {
     }
 }
 
-export default Course;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleClick(id) {
+            dispatch(actionCreater.get_course(id))
+        }
+    };
+};
+export default connect(null, mapDispatchToProps)(withRouter(Course));

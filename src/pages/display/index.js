@@ -5,7 +5,6 @@ import Head from "../../common/header/index";
 import store from "../../store";
 import ContentBody from './content';
 import Footer from '../../common/footer'
-import { CookiesProvider } from 'react-cookie';
 var Display = () => (
     <Provider store={store}>
         <Affix offsetTop={0}>

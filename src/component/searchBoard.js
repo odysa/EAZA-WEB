@@ -10,7 +10,7 @@ var state = {
     breadths: []
 }
 var isProf = (e) => {
-    if (e.key == "prof") {
+    if (e.key === "prof") {
         state.prof = !state.prof;
     }
     else {
@@ -32,19 +32,23 @@ class SearchBoard extends Component {
             <div
                 style={{
                     background: 'white',
-                    width: '250px',
+                    width: '12rem',
                     boxShadow: '0 0 1rem rgba(0,0,0,.1)',
                     borderRadius: '5px',
                     border: 'None'
                 }}
             >
-                <Search enterButton
-                    placeholder='left blank for all'
-                    onSearch={(value) => handleSearch(value, 1, state.breadths)}
-                    style={{
-                        margin: "1rem 5px 0.5rem 5px", width: '240px', padding: "0 0 0 0"
-                    }}
-                />
+                <Tooltip
+                    title='Multiple selections available'
+                >
+                    <Search enterButton
+                        placeholder='left blank for all'
+                        onSearch={(value) => handleSearch(value, 1, state.breadths)}
+                        style={{
+                            margin: "1rem 5px 0.5rem 5px", width: '11.5rem', padding: "0 0 0 0"
+                        }}
+                    />
+                </Tooltip>
                 <Menu
                     multiple
                     defaultOpenKeys={['GeneralEd']}
@@ -121,8 +125,6 @@ class SearchBoard extends Component {
 const mapDispatchToProps = (dispatch) => {
     return ({
         handleSearch(value, page, breadths) {
-            //dispatch(actionCreaters.clearSearch())
-            console.log(state.prof)
             if (state.prof) dispatch(actionCreaters.searchProfs(value));
             else if (breadths.length === 0)
                 dispatch(actionCreaters.searchCourse(value, page));

@@ -1199,7 +1199,7 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.4.0":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.4.0", "@babel/runtime@^7.9.2":
   version "7.9.2"
   resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.9.2.tgz?cache=0&sync_timestamp=1584800126869&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.9.2.tgz#d90df0583a3a252f09aaa619665367bae518db06"
   integrity sha1-2Q3wWDo6JS8JqqYZZlNnuuUY2wY=
@@ -1499,6 +1499,13 @@
     "@svgr/plugin-jsx" "^4.1.0"
     "@svgr/plugin-svgo" "^4.0.3"
     loader-utils "^1.1.0"
+
+"@tanem/svg-injector@^8.0.48":
+  version "8.0.49"
+  resolved "https://registry.npm.taobao.org/@tanem/svg-injector/download/@tanem/svg-injector-8.0.49.tgz#39433f40fc7b240a79e1f4091ea26665a005b22c"
+  integrity sha1-OUM/QPx7JAp54fQJHqJmZaAFsiw=
+  dependencies:
+    "@babel/runtime" "^7.9.2"
 
 "@testing-library/dom@^6.15.0":
   version "6.16.0"
@@ -9772,6 +9779,15 @@ react-scripts@^2.1.8:
     workbox-webpack-plugin "3.6.3"
   optionalDependencies:
     fsevents "1.2.4"
+
+react-svg@^11.0.20:
+  version "11.0.20"
+  resolved "https://registry.npm.taobao.org/react-svg/download/react-svg-11.0.20.tgz#c912bf39b042d75282381ca03d4136a7873a8cfb"
+  integrity sha1-yRK/ObBC11KCOBygPUE2p4c6jPs=
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+    "@tanem/svg-injector" "^8.0.48"
+    prop-types "^15.7.2"
 
 react-transition-group@^4.0.0, react-transition-group@^4.3.0:
   version "4.3.0"

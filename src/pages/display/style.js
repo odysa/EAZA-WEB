@@ -12,8 +12,9 @@ export const Layout = styled(_Layout)`
 }
 `
 export const Card = styled(_Card)`
-width: 450px;
+width: 33rem;
 margin: 0 .5rem .5rem 0;
+font-size:1.2rem;
 box-shadow: 0 0 .1rem rgba(0,0,0,.2), 0 0 .2rem  rgba(0,0,0,.2);
 :hover {
    bottom: 0.6%;
