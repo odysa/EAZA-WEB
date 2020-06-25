@@ -1,68 +1,92 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#  EAZA
 
-## Available Scripts
+![badge](https://img.shields.io/badge/EAZA-Frontend-critical)![badge](https://img.shields.io/david/cbian03/EAZA-WEB)![badge](https://img.shields.io/github/license/cbian03/EAZA-WEB)[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)![badge](https://img.shields.io/github/last-commit/cbian03/EAZA-WEB)
 
-In the project directory, you can run:
+This a frontend of website [EAZA](www.eaza.cc), which is a great platform for UW-Madison students to explore courses and professors. Details such as course requirements and descriptions are provided in a user-friendly way.
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Install
 
-### `yarn test`
+1. Clone this project to your PC
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```powershell
+git clone https://www.example.com
+```
 
-### `yarn build`
+2. Run npm install in terminal to install required modules
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```powershell
+npm install
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+3. Run the project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm run start
+```
 
-### `yarn eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This project follows Restful API rules. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Please go to the secure dictory to update API url.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## API
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* Search a course
 
-## Learn More
+```
+www.eaza.cc/api/v1/search?query=""&page=1
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Fields | Type    | Description           |
+| :----- | ------- | --------------------- |
+| query  | String  | Key words             |
+| page   | Integer | Page numbe of results |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Search course by breadths
 
-### Code Splitting
+```
+www.eaza.cc/api/v1/search/breadth?query='all'&breadths=''&page=1
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+| Fields   | Type    | Description                                                  |
+| -------- | ------- | ------------------------------------------------------------ |
+| query    | String  | Key words. 'all' indicates all courses.                      |
+| breadths | String  | A string of subject code (see followed) seperated by '1'. e.g. 'S1H1B' |
+| page     | Integer | Page numbe of results                                        |
 
-### Analyzing the Bundle Size
+| Subject Code | Subject              |
+| ------------ | -------------------- |
+| A            | Communication Part A |
+| B            | Biological Science   |
+| C            | Communication Part B |
+| E            | Ethnic Studies       |
+| H            | Humanities           |
+| L            | Literatures          |
+| S            | Social Science       |
+| P            | Physical Science     |
+| N            | Natural Science      |
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+* Search a professor
 
-### Making a Progressive Web App
+```
+www.eaza.cc/api/v1/get/prof?name=""
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+| Fields | Type   | Description           |
+| ------ | ------ | --------------------- |
+| name   | String | The name of professor |
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
+## To Do
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- [ ] More friendly smart phones compatible
+- [ ] Course requirement graphs
+- [ ] ...
 
-### `yarn build` fails to minify
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[MIT © Richard McRichface.](../LICENSE)
