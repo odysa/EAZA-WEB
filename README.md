@@ -2,7 +2,7 @@
 
 ![badge](https://img.shields.io/badge/EAZA-Frontend-critical)![badge](https://img.shields.io/david/cbian03/EAZA-WEB)![badge](https://img.shields.io/github/license/cbian03/EAZA-WEB)[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)![badge](https://img.shields.io/github/last-commit/cbian03/EAZA-WEB)
 
-This a frontend of website [EAZA](www.eaza.cc), which is a great platform for UW-Madison students to explore courses and professors. Details such as course requirements and descriptions are provided in a user-friendly way.
+This a frontend of website [EAZA](https://www.eaza.cc), which is a great platform for UW-Madison students to explore courses and professors. Details such as course requirements and descriptions are provided in a user-friendly way.
 
 
 
