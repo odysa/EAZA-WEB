@@ -1,16 +1,16 @@
 /*
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 11:09:22
- * @Last Modified by:   Chengxu Bian
- * @Last Modified time: 2020-06-25 11:09:22
+ * @Last Modified by: Chengxu Bian
+ * @Last Modified time: 2020-06-25 11:24:03
  */
 import React, { Component } from "react";
 import { SearchBox, MyLink } from "./style";
 import { connect } from "react-redux";
 import { actionCreaters } from "./store/index";
 import { Link } from "react-router-dom";
-import Texty from "../../pages/intro/content/node_modules/rc-texty";
-import { Row, Col } from "../../pages/intro/content/node_modules/antd";
+import Texty from "rc-texty";
+import { Row, Col } from "antd";
 import { SearchWrapper, HeadWrapper } from "./style";
 import { Nav, Navbar } from "react-bootstrap";
 import { CSSTransition } from "react-transition-group";

@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 11:02:11
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-06-25 11:02:34
+ * @Last Modified time: 2020-06-25 11:26:46
  */
 import React, { Component } from "react";
 import { Card } from "./style";
@@ -25,7 +25,7 @@ class Course extends Component {
         }
         extra={
           grade
-            ? "A :" + " " + (grade * 100).toFixed(1).toString() + "%"
+            ? "A : " + ((grade * 100).toFixed(1).toString() + "%")
             : "None"
         }
         onClick={() => {
@@ -46,7 +46,7 @@ class Course extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleClick(id) {
-      dispatch(actionCreater.get_course(id));
+      dispatch(actionCreater.getCourse(id));
     },
   };
 };

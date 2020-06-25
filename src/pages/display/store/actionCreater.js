@@ -2,10 +2,10 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 10:49:28
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-06-25 10:59:28
+ * @Last Modified time: 2020-06-25 11:25:52
  */
 import * as constants from "./actionTypes";
-import { fromJS, List } from "immutable";
+import { fromJS } from "immutable";
 import axios from "axios";
 import cookies from "react-cookies";
 import { url } from "../../../secure";

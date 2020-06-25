@@ -2,16 +2,16 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 11:03:46
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-06-25 11:08:31
+ * @Last Modified time: 2020-06-25 11:25:06
  */
 import React from "react";
-import { Affix } from "./content/node_modules/antd";
+import { Affix } from "antd";
 import { Provider } from "react-redux";
 import Head from "../../common/header/index";
 import HomeContent from "./content/index";
 import store from "../../store";
 import Footer from "../../common/footer";
-import QueueAnim from "./content/node_modules/rc-queue-anim";
+import QueueAnim from "rc-queue-anim";
 /**
  * Home page
  */

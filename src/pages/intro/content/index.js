@@ -82,7 +82,7 @@ class HomeContent extends Component {
                   </Texty>
                   </div>
                   <div >
-                  <img src={p3} style={{width:'640px',height:'320px'}}/>
+                  <img src={p3} alt="display course" style={{width:'640px',height:'320px'}}/>
                   </div>
                 </Jumbotron>
               </QueueAnim>
@@ -93,7 +93,7 @@ class HomeContent extends Component {
                     style={{ background: "transparent", height: "50%",display:'flex',justifyContent:'space-around',alignItems:'center'  }}
                   >
                     <div>
-                      <img src={p1} style={{width:'640px',height:'320px'}}/>
+                      <img src={p1} alt="display information" style={{width:'640px',height:'320px'}}/>
                     </div>
                     <div style={{ textAlign: "right" }}>
                       <Texty
