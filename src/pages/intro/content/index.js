@@ -8,8 +8,12 @@ import { ButtonCustom } from "./style";
 import * as url from "./result.png";
 import Texty from "rc-texty";
 import * as p1 from './p1.jpg'
-import {MyLink} from "../header/style";
+import {MyLink} from "../../../common/header/style";
 import * as p3 from './p3.jpg'
+
+/**
+ * content of home page
+ */
 class HomeContent extends Component {
   values = { visible: false };
   onClose = () => {

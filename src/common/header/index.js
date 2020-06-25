@@ -1,13 +1,22 @@
+/*
+ * @Author: Chengxu Bian
+ * @Date: 2020-06-25 11:09:22
+ * @Last Modified by:   Chengxu Bian
+ * @Last Modified time: 2020-06-25 11:09:22
+ */
 import React, { Component } from "react";
 import { SearchBox, MyLink } from "./style";
 import { connect } from "react-redux";
 import { actionCreaters } from "./store/index";
-import { Link } from 'react-router-dom'
-import Texty from "rc-texty";
-import { Row, Col } from 'antd'
+import { Link } from "react-router-dom";
+import Texty from "../../pages/intro/content/node_modules/rc-texty";
+import { Row, Col } from "../../pages/intro/content/node_modules/antd";
 import { SearchWrapper, HeadWrapper } from "./style";
 import { Nav, Navbar } from "react-bootstrap";
 import { CSSTransition } from "react-transition-group";
+/**
+ * Header for all pages
+ */
 class Head extends Component {
   render() {
     const { focused } = this.props;
@@ -17,15 +26,15 @@ class Head extends Component {
           <Col xs={0} sm={0} md={2} lg={4} xl={4}></Col>
           <Col xs={24} sm={24} md={20} lg={16} xl={16}>
             <Navbar
-              expand='md'
+              expand="md"
               sticky="top"
-              style={{ height: "100%", padding: '0 .5rem' }}
+              style={{ height: "100%", padding: "0 .5rem" }}
             >
               <Link to="/" style={{ padding: "0 0 0 0" }}>
                 <Navbar.Brand style={{ color: "#c0392b", fontSize: "3em" }}>
                   <Texty duration={1000} delay={200}>
                     E A Z A
-              </Texty>
+                  </Texty>
                 </Navbar.Brand>
               </Link>
               <Navbar.Toggle
@@ -35,17 +44,27 @@ class Head extends Component {
               <Navbar.Collapse id="basic-navbar-nav" style={{}}>
                 <div style={{ width: 300 }}>
                   <SearchWrapper>
-                    <CSSTransition in={focused} timeout={200} classNames="slide">
+                    <CSSTransition
+                      in={focused}
+                      timeout={200}
+                      classNames="slide"
+                    >
                       <SearchBox />
                     </CSSTransition>
                   </SearchWrapper>
                 </div>
               </Navbar.Collapse>
-              <Navbar.Collapse id="basic-navbar-nav" style={{ flexDirection: 'row-reverse' }}>
+              <Navbar.Collapse
+                id="basic-navbar-nav"
+                style={{ flexDirection: "row-reverse" }}
+              >
                 <Nav style={{ fontSize: 20 }}>
-                  <MyLink href="/intro/intro.html"
-                    style={{ marginRight: '1.2rem' }}
-                  >Introduction</MyLink>
+                  <MyLink
+                    href="/intro/intro.html"
+                    style={{ marginRight: "1.2rem" }}
+                  >
+                    Introduction
+                  </MyLink>
                 </Nav>
               </Navbar.Collapse>
             </Navbar>

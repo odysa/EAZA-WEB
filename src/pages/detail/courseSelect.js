@@ -1,9 +1,19 @@
+/*
+ * @Author: Chengxu Bian 
+ * @Date: 2020-06-25 10:57:17 
+ * @Last Modified by:   Chengxu Bian 
+ * @Last Modified time: 2020-06-25 10:57:17 
+ */
 import {Select} from './style';
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import * as actionCreater from './store/actionCreater'
 import  {getCumulativeGradeByProf,getGradeByProf} from '../../lib/index'
-class SelectBoard extends Component {
+
+/**
+ * A board for users to select from oppotions
+ */
+class courseSelect extends Component {
     render = () => {
         const {terms} = this.props
         const options = terms.map((item) => ({
@@ -41,6 +51,7 @@ const mapDispatchToProps = (dispatch) => {
     return ({
         handleChange(value, grades, totalGrades, currentProf) {
             if (value === 'Cumulative') {
+                // diplay cumulative information
                 if (currentProf !== 'All')
                     dispatch(actionCreater.changeGrade(getCumulativeGradeByProf(currentProf, grades, value)))
                 else dispatch(actionCreater.changeGrade(totalGrades))
@@ -49,6 +60,7 @@ const mapDispatchToProps = (dispatch) => {
                 for (let i = 0; i < grades.size; ++i) {
                     if (grades.get(i).get('semester') === value) {
                         if (currentProf === 'All')
+                        // display all professor's information in a given semester
                             dispatch(actionCreater.changeGrade(grades.get(i).get('cumulative').set('term', value)));
                         else {
                             dispatch(actionCreater.changeGrade(getGradeByProf(currentProf, grades.get(i), value)))
@@ -61,4 +73,4 @@ const mapDispatchToProps = (dispatch) => {
         }
     })
 }
-export default connect(mapStateToProps, mapDispatchToProps)(SelectBoard);
+export default connect(mapStateToProps, mapDispatchToProps)(courseSelect);

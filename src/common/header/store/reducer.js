@@ -1,13 +1,19 @@
+/*
+ * @Author: Chengxu Bian
+ * @Date: 2020-06-25 11:12:13
+ * @Last Modified by:   Chengxu Bian
+ * @Last Modified time: 2020-06-25 11:12:13
+ */
 import * as constants from "./actionTypes";
 import { fromJS } from "immutable";
 
 const defaultState = fromJS({
   focused: false,
-  value: '',
+  value: "",
   courses: [],
   loading: false,
   total: 0,
-  page: 0
+  page: 0,
 });
 
 var reducer = (state = defaultState, action) => {
@@ -21,15 +27,15 @@ var reducer = (state = defaultState, action) => {
         courses: action.courses,
         total: action.total,
         page: action.page,
-        value: action.value
-      })
+        value: action.value,
+      });
     case constants.CLEAR_COURSE:
       return state.merge({
         courses: action.courses,
-        loading: action.loading
-      })
+        loading: action.loading,
+      });
     case constants.SEARCH_DONE:
-      return state.set("loading", action.loading)
+      return state.set("loading", action.loading);
     default:
       return state;
   }
