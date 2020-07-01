@@ -29,3 +29,17 @@ export const Select = styled(_Select)`
     box-shadow: 0 0 1.1rem rgba(0, 0, 0, 0.15);
   }
 `;
+
+export const ChartConent = styled.div`
+  width: 43rem;
+  @media screen and (max-width: 500px) {
+    width: 30rem;
+  }
+`;
+export const ChartStyle = styled.div`
+  width: 100%;
+  height: 45rem;
+  @media screen and (max-width: 500px) {
+    height: 20rem;
+  }
+`;

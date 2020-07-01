@@ -1,8 +1,8 @@
 /*
  * @Author: Chengxu Bian 
  * @Date: 2020-06-25 10:57:17 
- * @Last Modified by:   Chengxu Bian 
- * @Last Modified time: 2020-06-25 10:57:17 
+ * @Last Modified by: Chengxu Bian
+ * @Last Modified time: 2020-07-02 00:56:40
  */
 import {Select} from './style';
 import React, {Component} from 'react';
@@ -21,7 +21,7 @@ class courseSelect extends Component {
         })).unshift({value: 'Cumulative'})
         const {handleChange, grades, totalGrades, currentProf, currentValue} = this.props;
         return (
-            <div>
+            <div style={{marginTop:'1rem'}}>
                 <Select
                     bordered={false}
                     value={currentValue}

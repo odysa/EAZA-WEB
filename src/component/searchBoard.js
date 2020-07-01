@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 11:04:16
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-06-25 11:05:59
+ * @Last Modified time: 2020-07-01 23:28:01
  */
 import React, { Component } from "react";
 import { Input, Menu, Tooltip } from "antd";
@@ -36,29 +36,31 @@ var isProf = (e) => {
  */
 class SearchBoard extends Component {
   render = () => {
-    const { handleSearch, handleChange } = this.props;
+    const { handleSearch, handleChange, displaySearch = true } = this.props;
     return (
       <div
         style={{
           background: "white",
           width: "12rem",
-          boxShadow: "0 0 1rem rgba(0,0,0,.1)",
+          boxShadow: "0 0 1rem rgba(0,0,0,.2)",
           borderRadius: "5px",
-          border: "None",
+          border: "none",
         }}
       >
-        <Tooltip title="Multiple selections available">
-          <Search
-            enterButton
-            placeholder="left blank for all"
-            onSearch={(value) => handleSearch(value, 1, state.breadths)}
-            style={{
-              margin: "1rem 5px 0.5rem 5px",
-              width: "11.5rem",
-              padding: "0 0 0 0",
-            }}
-          />
-        </Tooltip>
+        {displaySearch && (
+          <Tooltip title="Multiple selections available">
+            <Search
+              enterButton
+              placeholder="left blank for all"
+              onSearch={(value) => handleSearch(value, 1, state.breadths)}
+              style={{
+                margin: "1rem 5px 0.5rem 5px",
+                width: "11.5rem",
+                padding: "0 0 0 0",
+              }}
+            />
+          </Tooltip>
+        )}
         <Menu
           multiple
           defaultOpenKeys={["GeneralEd"]}

@@ -2,20 +2,22 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 11:06:04
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-06-25 11:07:12
+ * @Last Modified time: 2020-07-02 00:37:05
  */
 import React, { Component } from "react";
-import { Input } from "antd";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { actionCreaters } from "../pages/display/store";
 import { actionCreaters as actionCreaters2 } from "../common/header/store";
-const { Search } = Input;
+import { SearchBox as Search } from "../common/header/style";
+import HotList from "./hotList";
+
 /**
  * A input box for searching
  * Perform search and update
  */
 class SearchBox extends Component {
+
   render() {
     const {
       handleInputFocus,
@@ -24,17 +26,18 @@ class SearchBox extends Component {
       focused,
     } = this.props;
     return (
-      <Search
-        placeholder="Search"
-        onFocus={handleInputFocus}
-        onBlur={handleInputBlur}
-        onSearch={(value) => {
-          handleSearch(value, 1);
-          this.props.history.push("/display");
-        }}
-        size="large"
-        className={focused ? "normal focused" : "normal"}
-      />
+      <div>
+        <Search
+          placeholder="Search"
+          onFocus={handleInputFocus}
+          onBlur={handleInputBlur}
+          onSearch={(value) => {
+            handleSearch(value, 1);
+            this.props.history.push("/display");
+          }}
+        />
+        {focused && this.props.toggled && <HotList />}
+      </div>
     );
   }
 }
@@ -47,6 +50,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleSearch(value, page) {
+      dispatch(actionCreaters2.searchBlur());
       dispatch(actionCreaters.searchCourse(value, page));
     },
     handleInputFocus() {

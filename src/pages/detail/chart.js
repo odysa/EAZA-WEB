@@ -2,13 +2,14 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 10:57:37
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-06-25 10:58:24
+ * @Last Modified time: 2020-07-02 01:06:01
  */
 import React, { Component } from "react";
 import echarts from "echarts/lib/echarts";
 import "echarts/lib/component/tooltip";
 import "echarts/lib/component/title";
 import "echarts/lib/chart/pie";
+import {ChartStyle} from './style';
 
 //settting of chart
 var setOption = (grades) => ({
@@ -110,7 +111,7 @@ class Chart extends Component {
     if (grades) myChart.setOption(setOption(grades));
   }
   render = () => {
-    return <div id="chart" style={{ width: "100%", height: "500px" }} />;
+    return <ChartStyle id="chart" style={{ }} />;
   };
 }
 

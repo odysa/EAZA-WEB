@@ -2,11 +2,11 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 10:57:25
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-06-25 10:58:17
+ * @Last Modified time: 2020-07-02 01:03:43
  */
 import React, { Component } from "react";
 import { Row, Col, Empty, Descriptions, Skeleton } from "antd";
-import { Collapse } from "./style";
+import { Collapse,ChartConent } from "./style";
 import Chart from "./chart";
 import { connect } from "react-redux";
 import TermSelect from "./courseSelect";
@@ -54,7 +54,7 @@ class Content extends Component {
               flexDirection: "row",
               flexWrap: "wrap",
               justifyContent: "space-around",
-              alignItems: "center",
+              alignItems: "flex-start",
             }}
           >
             <div style={{ width: "43rem" }}>
@@ -102,7 +102,7 @@ class Content extends Component {
               </Skeleton>
             </div>
 
-            <div style={{ width: "43rem" }}>
+            <ChartConent>
               <div
                 style={{
                   display: "flex",
@@ -112,19 +112,18 @@ class Content extends Component {
                   justifyContent: "space-around",
                 }}
               >
-                {currentGrades && currentGrades.get("total") > 0 && (
+                {currentGrades &&currentGrades.get("total") > 0 && (
                   <ProfSelect />
                 )}
                 {currentGrades && currentGrades.get("total") > 0 && (
                   <TermSelect />
                 )}
               </div>
-              <div style={{ height: "1rem" }} />
               {currentGrades && currentGrades.get("total") > 0 && (
                 <Chart grades={currentGrades} />
               )}
               {(!currentGrades || currentGrades.get("total") <= 0) && <Empty />}
-            </div>
+            </ChartConent>
           </Col>
           <Col xxl={2} />
         </Row>

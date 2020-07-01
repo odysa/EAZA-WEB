@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 10:56:31
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-06-25 10:59:18
+ * @Last Modified time: 2020-07-02 00:56:24
  */
 import { Select } from "./style";
 import React, { Component } from "react";
@@ -25,18 +25,17 @@ class profSelect extends Component {
       handleChange,
       grades,
       totalTerm,
-      currentValue,
       totalGrades,
     } = this.props;
     return (
-      <div>
+      <div style={{marginTop:'1rem'}}>
         <Select
           bordered={false}
           defaultValue="All"
           style={{ width: 200 }}
           options={options}
           onSelect={(value) => {
-            handleChange(value, grades, totalTerm, currentValue, totalGrades);
+            handleChange(value, grades, totalTerm, totalGrades);
           }}
         ></Select>
       </div>
@@ -54,7 +53,6 @@ const mapStateToProps = (state) => {
     profs: state.getIn(["detail", "profsList"]),
     totalTerm: state.getIn(["detail", "termList"]),
     grades: state.getIn(["detail", "grades"]),
-    currentValue: state.getIn(["detail", "currentValue"]),
     totalGrades: state.getIn(["detail", "totalGrades"]),
   };
 };
@@ -66,6 +64,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleChange(value, grades, term, totalGrades) {
       if (value === "All") {
+        console.log(totalGrades);
         //display all profesors
         dispatch(actionCreater.changeProf("All"));
         dispatch(actionCreater.changeTerm(term));
