@@ -83,7 +83,8 @@ www.eaza.cc/api/v1/get/prof?name=""
 
 ## To Do
 
-- [ ] More friendly smart phones compatible
+- [x] More friendly mobile compatible degisn
+- [x] Add Google Analysis
 - [ ] Course requirement graphs
 - [ ] ...
 
