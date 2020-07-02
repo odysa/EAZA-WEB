@@ -1,3 +1,9 @@
+/*
+ * @Author: Chengxu Bian
+ * @Date: 2020-07-02 17:54:32
+ * @Last Modified by:   Chengxu Bian
+ * @Last Modified time: 2020-07-02 17:54:32
+ */
 import styled from "styled-components";
 import { Button } from "react-bootstrap";
 
@@ -56,12 +62,4 @@ export const MobileText = styled.h1`
     margin: 0.5rem auto;
   }
 `;
-export const ContentBox = styled.div`
-  /* height:80rem; */
-  /* @media screen and (max-width:1300px){
-    height:50rem;
-  }
-  @media screen and (max-width:1540px){
-    height:60rem;
-  } */
-`;
+export const ContentBox = styled.div``;

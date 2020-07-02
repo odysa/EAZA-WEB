@@ -1,3 +1,9 @@
+/*
+ * @Author: Chengxu Bian
+ * @Date: 2020-07-02 17:50:59
+ * @Last Modified by:   Chengxu Bian
+ * @Last Modified time: 2020-07-02 17:50:59
+ */
 import React, { Component } from "react";
 import { Board, Intro, GithubLink } from "../common/header/style";
 import SearchBox from "./searchBox";

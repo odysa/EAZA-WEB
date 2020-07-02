@@ -1,5 +1,14 @@
+/*
+ * @Author: Chengxu Bian
+ * @Date: 2020-07-02 17:53:37
+ * @Last Modified by: Chengxu Bian
+ * @Last Modified time: 2020-07-02 17:54:00
+ */
 import styled from "styled-components";
 import { Layout as _Layout, Card as _Card } from "antd";
+/**
+ * Customise antd Layout
+ */
 export const Layout = styled(_Layout)`
   .ant-layout {
     background: white;
@@ -11,6 +20,9 @@ export const Layout = styled(_Layout)`
     background: white;
   }
 `;
+/**
+ * Customise antd card to display courses
+ */
 export const Card = styled(_Card)`
   width: 33rem;
   margin: 0 0.5rem 0.5rem 0;

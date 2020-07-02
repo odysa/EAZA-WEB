@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 10:59:51
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-01 16:58:08
+ * @Last Modified time: 2020-07-02 17:52:38
  */
 import React, { Component } from "react";
 import { Row, Col, Affix, Spin, Pagination, Empty } from "antd";
@@ -151,6 +151,7 @@ class ContentBody extends Component {
                     );
                   })}
                 <div style={{ width: "100%", height: 50 }}></div>
+                {/* Display pagination only when more than 2 pages */}
                 {courses && !loading && courses.size > 0 && (
                   <Pagination
                     current={page}

@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 11:02:11
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-06-25 11:26:46
+ * @Last Modified time: 2020-07-02 17:53:19
  */
 import React, { Component } from "react";
 import { Card } from "./style";
@@ -10,6 +10,9 @@ import { Tag } from "antd";
 import * as actionCreater from "../detail/store/actionCreater";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+/**
+ * Card to display courses
+ */
 class Course extends Component {
   render() {
     const { abb, number, name, tags, grade, handleClick, id } = this.props;
@@ -24,9 +27,7 @@ class Course extends Component {
             : abb.slice(0, 27) + "... " + number
         }
         extra={
-          grade
-            ? "A : " + ((grade * 100).toFixed(1).toString() + "%")
-            : "None"
+          grade ? "A : " + ((grade * 100).toFixed(1).toString() + "%") : "None"
         }
         onClick={() => {
           handleClick(id);

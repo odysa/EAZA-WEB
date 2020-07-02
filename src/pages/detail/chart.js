@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 10:57:37
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-02 01:06:01
+ * @Last Modified time: 2020-07-02 17:50:01
  */
 import React, { Component } from "react";
 import echarts from "echarts/lib/echarts";

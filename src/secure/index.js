@@ -4,4 +4,4 @@
  * @Last Modified by: Chengxu Bian
  * @Last Modified time: 2020-07-02 01:14:22
  */
-export const url = "https://www.example.com";
+export const url = "https://www.exaple.com";

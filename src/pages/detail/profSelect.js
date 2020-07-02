@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 10:56:31
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-02 00:56:24
+ * @Last Modified time: 2020-07-02 17:50:29
  */
 import { Select } from "./style";
 import React, { Component } from "react";
@@ -21,14 +21,9 @@ class profSelect extends Component {
         value: item,
       }))
       .unshift({ value: "All" });
-    const {
-      handleChange,
-      grades,
-      totalTerm,
-      totalGrades,
-    } = this.props;
+    const { handleChange, grades, totalTerm, totalGrades } = this.props;
     return (
-      <div style={{marginTop:'1rem'}}>
+      <div style={{ marginTop: "1rem" }}>
         <Select
           bordered={false}
           defaultValue="All"
