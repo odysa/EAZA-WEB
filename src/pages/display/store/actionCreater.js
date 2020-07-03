@@ -2,35 +2,29 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 10:49:28
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-06-25 11:25:52
+ * @Last Modified time: 2020-07-03 19:58:57
  */
 import * as constants from "./actionTypes";
 import { fromJS } from "immutable";
 import axios from "axios";
 import cookies from "react-cookies";
 import { url } from "../../../secure";
-
 /**
- * search course by input
- * @param {String} value input
- * @param {Number} page page number
+ * perform usual search
+ * @param {String} value
+ * @param {Number} page
  */
 export const searchCourse = (value, page) => {
-  // save query in cookie
+  //save query in cookie
   cookies.save("query", value, { path: "/" });
-  cookies.save("page", page, { path: "/" });
-  cookies.remove("breadths");
   cookies.remove("prof");
+  cookies.remove("breadths");
   return (dispatch) => {
-    dispatch({
-      type: constants.CLEAR_COURSE,
-      loading: true,
-      courses: fromJS([]),
-      profs: fromJS([]),
-      didSearch: true,
-    });
+    //clear previous search
+    dispatch(clearSearch());
+    if (!page) page = 1;
     axios
-      .get(url + "search?query=" + value + "&page=" + page)
+      .get(`${url}/search/${value}/${page}`)
       .then((response) => {
         let responseData = response.data.data;
         const result = {
@@ -39,6 +33,7 @@ export const searchCourse = (value, page) => {
           total: fromJS(response.data.total),
           page: fromJS(page),
           value: fromJS(value),
+          didSearch: true,
         };
         dispatch({
           type: constants.SEARCH_DONE,
@@ -47,7 +42,6 @@ export const searchCourse = (value, page) => {
         dispatch(result);
       })
       .catch((error) => {
-        //if failed, do not load data
         dispatch({
           type: constants.SEARCH_DONE,
           loading: false,
@@ -65,8 +59,8 @@ export const searchBreadths = (value, page, breadths) => {
   cookies.save("breadths", breadths, { path: "/" });
   cookies.save("query", value, { path: "/" });
   cookies.save("page", page, { path: "/" });
-  cookies.remove("profs");
-  breadths = breadths.join("1");
+  cookies.remove("prof");
+  breadths = breadths.join("");
   if (value === "") value = "all";
   return (dispatch) => {
     //clear exsiting courses before searching
@@ -78,15 +72,7 @@ export const searchBreadths = (value, page, breadths) => {
       didSearch: true,
     });
     axios
-      .get(
-        url +
-          "search/breadth?query=" +
-          value +
-          "&breadths=" +
-          breadths +
-          "&page=" +
-          page
-      )
+      .get(`${url}/breadth/${value}/${breadths}/${page}`)
       .then((response) => {
         let responseData = response.data.data;
         const result = {
@@ -122,15 +108,9 @@ export const searchProfs = (name) => {
   cookies.remove("breadths");
 
   return (dispatch) => {
-    dispatch({
-      type: constants.CLEAR_COURSE,
-      loading: true,
-      profs: fromJS([]),
-      courses: fromJS([]),
-      didSearch: true,
-    });
+    dispatch(clearSearch());
     axios
-      .get(url + "get/prof?name=" + name)
+      .get(`${url}/prof/${name}`)
       .then((response) => {
         let responseData = response.data.data;
         const result = {
@@ -168,5 +148,7 @@ export const changeBreadth = (breadths) => ({
 export const clearSearch = () => ({
   type: constants.CLEAR_COURSE,
   loading: true,
-  courses: [],
+  profs: fromJS([]),
+  courses: fromJS([]),
+  didSearch: true,
 });

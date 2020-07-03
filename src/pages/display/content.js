@@ -2,22 +2,21 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 10:59:51
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-02 17:52:38
+ * @Last Modified time: 2020-07-03 19:59:04
  */
 import React, { Component } from "react";
 import { Row, Col, Affix, Spin, Pagination, Empty } from "antd";
 import { Layout } from "./style";
 import MultiSearch from "./multiSearch";
 import Course from "./course";
-import { Collapse } from "../detail/style";
+import ProfDisplay from "../../component/profDisplay";
 import { connect } from "react-redux";
-import { actionCreaters } from "./store";
+import { actionCreaters as displayActionCreaters } from "./store";
 import { withRouter } from "react-router-dom";
 import cookies from "react-cookies";
 import { SyncOutlined } from "@ant-design/icons";
 import { getBreadthList } from "../../lib";
 const { Content } = Layout;
-const { Panel } = Collapse;
 
 const EmptyDisplay = <Empty description="Nothing Found" />;
 const loadingIcon = <SyncOutlined spin style={{ fontSize: 70 }} />;
@@ -30,7 +29,7 @@ class ContentBody extends Component {
 
   componentDidMount() {
     const { handleSearch, isSearch } = this.props;
-    //if user is searching
+    //if user searched
     if (isSearch) return;
     //if nothing in redux than get query from cookie
     if (!this.cookieProfs && !this.cookieBreadths)
@@ -96,45 +95,7 @@ class ContentBody extends Component {
                 }}
               >
                 {/* whether display professors */}
-                {profs && profs.size > 0 && (
-                  <Collapse style={{ width: "50rem" }} accordion>
-                    {profs &&
-                      profs.map((item, key) => {
-                        return (
-                          <Panel header={item.get("instructor")} key={key}>
-                            <Collapse expandIconPosition="right">
-                              {item.get("terms").map((terms, key2) => {
-                                return (
-                                  <Panel
-                                    header={terms.get("term")}
-                                    key={key2 * 2}
-                                  >
-                                    <Collapse>
-                                      {terms
-                                        .get("courses")
-                                        .map((courseItem, key3) => (
-                                          <Panel
-                                            key={key3 * 3}
-                                            showArrow={false}
-                                            header={
-                                              courseItem.get("abbreviation") +
-                                              " " +
-                                              courseItem.get("number")
-                                            }
-                                          >
-                                            {courseItem.get("name")}
-                                          </Panel>
-                                        ))}
-                                    </Collapse>
-                                  </Panel>
-                                );
-                              })}
-                            </Collapse>
-                          </Panel>
-                        );
-                      })}
-                  </Collapse>
-                )}
+                {profs && profs.size > 0 && <ProfDisplay profs={profs} />}
                 {courses &&
                   courses.map((item, key) => {
                     return (
@@ -207,10 +168,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleSearch(value, page, breadths, isProf) {
-      if (isProf) dispatch(actionCreaters.searchProfs(value));
+      if (isProf) dispatch(displayActionCreaters.searchProfs(value));
       else if (!breadths || breadths.size === 0)
-        dispatch(actionCreaters.searchCourse(value, page));
-      else dispatch(actionCreaters.searchBreadths(value, page, breadths));
+        dispatch(displayActionCreaters.searchCourse(value, page));
+      else
+        dispatch(displayActionCreaters.searchBreadths(value, page, breadths));
     },
   };
 };

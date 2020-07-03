@@ -10,19 +10,19 @@ This a frontend of website [EAZA](https://www.eaza.cc), which is a great platfor
 
 1. Clone this project to your PC
 
-```powershell
+```bash
 git clone https://www.example.com
 ```
 
 2. Run npm install in terminal to install required modules
 
-```powershell
+```bash
 npm install
 ```
 
 3. Run the project
 
-```
+```bash
 npm run start
 ```
 
@@ -30,32 +30,32 @@ npm run start
 
 This project follows Restful API rules. 
 
-Please go to the secure dictory to update API url.
+Please go to the secure folder to update API url.
 
 ## API
 
 * Search a course
 
-```
-www.eaza.cc/api/v1/search?query=""&page=1
+```markdown
+www.eaza.cc/api/v1/search/<query>/<page>
 ```
 
-| Fields | Type    | Description           |
-| :----- | ------- | --------------------- |
-| query  | String  | Key words             |
-| page   | Integer | Page numbe of results |
+| Fields | Type    | Description            |
+| :----- | ------- | ---------------------- |
+| query  | String  | Key words              |
+| page   | Integer | Page number of results |
 
 * Search course by breadths
 
-```
-www.eaza.cc/api/v1/search/breadth?query='all'&breadths=''&page=1
+```markdown
+www.eaza.cc/api/v1/breadth/<query>/<breadths>/<page>
 ```
 
-| Fields   | Type    | Description                                                  |
-| -------- | ------- | ------------------------------------------------------------ |
-| query    | String  | Key words. 'all' indicates all courses.                      |
-| breadths | String  | A string of subject code (see followed) seperated by '1'. e.g. 'S1H1B' |
-| page     | Integer | Page numbe of results                                        |
+| Fields   | Type    | Description                                          |
+| -------- | ------- | ---------------------------------------------------- |
+| query    | String  | Key words. 'all' indicates all courses.              |
+| breadths | String  | A string of subject code (see followed) e. g.  'SHB' |
+| page     | Integer | Page number of results                               |
 
 | Subject Code | Subject              |
 | ------------ | -------------------- |
@@ -71,19 +71,30 @@ www.eaza.cc/api/v1/search/breadth?query='all'&breadths=''&page=1
 
 * Search a professor
 
-```
-www.eaza.cc/api/v1/get/prof?name=""
+```markdown
+www.eaza.cc/api/v1/prof/<name>
 ```
 
 | Fields | Type   | Description           |
 | ------ | ------ | --------------------- |
 | name   | String | The name of professor |
 
+* Get a course by its abbreviation and number
+
+```markdown
+www.eaza.cc/get/<abbreviation>/<number>
+```
+
+| Fields       | Type    | Description                                     |
+| ------------ | ------- | ----------------------------------------------- |
+| abbreviation | String  | abbreviation of  a course name e. g.'CS','Math' |
+| number       | Integer | Number of a course                              |
+
 
 
 ## To Do
 
-- [x] More friendly mobile compatible degisn
+- [x] More friendly mobile compatible design
 - [x] Add Google Analysis
 - [ ] Course requirement graphs
 - [ ] ...

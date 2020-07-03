@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 10:57:25
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-02 17:50:05
+ * @Last Modified time: 2020-07-03 19:41:15
  */
 import React, { Component } from "react";
 import { Row, Col, Empty, Descriptions, Skeleton } from "antd";
@@ -19,8 +19,9 @@ const { Panel } = Collapse;
 
 class Content extends Component {
   componentDidMount() {
-    const { abb, refreshData } = this.props;
-    if (!abb && cookies.load("id")) refreshData(cookies.load("id"));
+    const { abb, refreshData, isSearch } = this.props;
+    if (!isSearch && !abb && cookies.load("id"))
+      refreshData(cookies.load("id"));
   }
 
   render = () => {
@@ -148,6 +149,7 @@ const mapStateToProps = (state) => {
     repeatable: state.getIn(["detail", "repeatable"]),
     currentGrades: state.getIn(["detail", "currentGrades"]),
     name: state.getIn(["detail", "name"]),
+    isSearch: state.getIn(["detail", "isSearch"]),
   };
 };
 const mapDispatchToProps = (dispatch) => {

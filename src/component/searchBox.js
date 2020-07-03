@@ -2,13 +2,13 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 11:06:04
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-02 17:55:14
+ * @Last Modified time: 2020-07-03 17:20:38
  */
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { actionCreaters } from "../pages/display/store";
-import { actionCreaters as actionCreaters2 } from "../common/header/store";
+import { actionCreaters } from "../common/header/store";
+import {actionCreaters as displayActionCreaters} from '../pages/display/store'
 import { SearchBox as Search } from "../common/header/style";
 import HotList from "./hotList";
 
@@ -49,14 +49,14 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleSearch(value, page) {
-      dispatch(actionCreaters2.searchBlur());
-      dispatch(actionCreaters.searchCourse(value, page));
+      dispatch(actionCreaters.searchBlur());
+      dispatch(displayActionCreaters.searchCourse(value, page));
     },
     handleInputFocus() {
-      dispatch(actionCreaters2.searchFocus());
+      dispatch(actionCreaters.searchFocus());
     },
     handleInputBlur() {
-      dispatch(actionCreaters2.searchBlur());
+      dispatch(actionCreaters.searchBlur());
     },
   };
 };

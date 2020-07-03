@@ -1,8 +1,8 @@
 /*
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 10:58:44
- * @Last Modified by:   Chengxu Bian
- * @Last Modified time: 2020-06-25 10:58:44
+ * @Last Modified by: Chengxu Bian
+ * @Last Modified time: 2020-07-03 19:59:09
  */
 import * as constants from "./actionTypes";
 import { fromJS } from "immutable";
@@ -28,6 +28,7 @@ const defaultState = fromJS({
   profsList: [],
   currentProf: "",
   currentValue: "Cumulative",
+  isSearch: false,
 });
 
 export default (state = defaultState, action) => {
@@ -65,6 +66,8 @@ export default (state = defaultState, action) => {
       return state.set("currentProf", fromJS(action.name));
     case constants.CHANGE_VALUE:
       return state.set("currentValue", fromJS(action.value));
+    case constants.SEARCH_BEGIN:
+      return state.set("isSearch", fromJS(action.isSearch));
     default:
       return state;
   }

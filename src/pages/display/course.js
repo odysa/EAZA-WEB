@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 11:02:11
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-02 17:53:19
+ * @Last Modified time: 2020-07-03 19:38:31
  */
 import React, { Component } from "react";
 import { Card } from "./style";
@@ -47,7 +47,8 @@ class Course extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleClick(id) {
-      dispatch(actionCreater.getCourse(id));
+      dispatch(actionCreater.searchBegin());
+      dispatch(actionCreater.getCourse(id,'I send'));
     },
   };
 };

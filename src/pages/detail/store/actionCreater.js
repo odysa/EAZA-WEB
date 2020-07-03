@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 10:51:11
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-06-25 10:56:24
+ * @Last Modified time: 2020-07-03 19:41:26
  */
 import axios from "axios";
 import * as constants from "./actionTypes";
@@ -45,16 +45,24 @@ const defaultGrade = {
   term: "Cumulative",
 };
 /**
+ * Signal that search begins
+ */
+export const searchBegin = () => ({
+  type: constants.SEARCH_BEGIN,
+  isSearch: true,
+});
+
+/**
  * find course by course id
  * @param {String} id
  */
-export const getCourse = (id) => {
+export const getCourse = (id, mess) => {
   //save course id in cookie
   cookies.save("id", id, { path: "/" });
   return (dispatch) => {
     dispatch(defaultDetail);
     axios
-      .get(url + "course/" + id)
+      .get(`${url}/course/${id}`)
       .then((res) => {
         res = res.data;
         let result = {
@@ -112,7 +120,7 @@ export const getCourse = (id) => {
 };
 /**
  * change term of display
- * @param {String} term 
+ * @param {String} term
  */
 export const changeTerm = (term) => ({
   type: constants.CHANGE_TERM,
@@ -120,7 +128,7 @@ export const changeTerm = (term) => ({
 });
 /**
  * change grade in redux
- * @param {Object} grade 
+ * @param {Object} grade
  */
 export const changeGrade = (grade) => ({
   type: constants.CHANGE_GRADE,
@@ -128,7 +136,7 @@ export const changeGrade = (grade) => ({
 });
 /**
  * change professor in redux
- * @param {String} name 
+ * @param {String} name
  */
 export const changeProf = (name) => ({
   type: constants.CHANGE_PROF,
@@ -137,7 +145,7 @@ export const changeProf = (name) => ({
 });
 /**
  * upate value in state
- * @param {String} value 
+ * @param {String} value
  */
 export const changeValue = (value) => ({
   type: constants.CHANGE_VALUE,
