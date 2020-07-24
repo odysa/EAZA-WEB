@@ -2,7 +2,7 @@
  * @Author: Chengxu Bian
  * @Date: 2020-06-25 10:56:31
  * @Last Modified by: Chengxu Bian
- * @Last Modified time: 2020-07-02 17:50:29
+ * @Last Modified time: 2020-07-04 16:43:06
  */
 import { Select } from "./style";
 import React, { Component } from "react";
@@ -16,11 +16,12 @@ class profSelect extends Component {
   render = () => {
     const { profs } = this.props;
     //convert to object and add 'All' to the ojects
+    //immutable.js return new array after unshift
     const options = profs
       .map((item) => ({
         value: item,
       }))
-      .unshift({ value: "All" });
+       .unshift({ value: "All" });
     const { handleChange, grades, totalTerm, totalGrades } = this.props;
     return (
       <div style={{ marginTop: "1rem" }}>

@@ -9,6 +9,22 @@
     <link rel="shortcut icon" href="./fav.png" />
     <title>EAZA-Help UW-Madison Students Search Courses</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-171551507-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      history.listen(function (location) {
+        window.ga("set", "page", location.pathname + location.search);
+        window.ga("send", "pageview", location.pathname + location.search);
+      });
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-171551507-1");
+    </script>
   </head>
 
   <body>

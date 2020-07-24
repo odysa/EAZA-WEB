@@ -4,8 +4,8 @@
  * @Last Modified by: Chengxu Bian
  * @Last Modified time: 2020-07-02 17:51:17
  */
-import gitImage from "./git.svg";
-import toggleImage from "./toggle.svg";
+import gitImage from "../../assets/git.svg";
+import toggleImage from "../../assets/toggle.svg";
 import styled from "styled-components";
 import { Input, List } from "antd";
 const { Search } = Input;

@@ -40,9 +40,11 @@ export const DisplayContent = styled.div`
   }
 `;
 export const ImageDisplay = styled.div`
-  height: 100%;
   width: 60%;
   @media screen and (max-width: 1100px) {
+    width: 90%;
+  }
+  @media screen and (max-width: 750px) {
     width: 100%;
   }
 `;
@@ -50,16 +52,32 @@ export const TextDisplay = styled.div`
   height: 100%;
   width: 40%;
   @media screen and (max-width: 1100px) {
-    width: 0px;
-    height: 0px;
+    display: none;
     visibility: hidden;
   }
 `;
-export const MobileText = styled.h1`
-  font-size: 0px;
+export const MobileText = styled.h3`
+  display: none;
   @media screen and (max-width: 1100px) {
-    font-size: 2rem;
-    margin: 0.5rem auto;
+    display: block;
+    margin: 0.6rem auto;
   }
 `;
-export const ContentBox = styled.div``;
+export const ContentBox = styled.div`
+  width: 1440px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  @media screen and (max-width: 1440px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 450px) {
+    padding: 0 0;
+  }
+`;
+export const AboutWrapper = styled.div`
+  width:1440px;
+  margin: 0 auto;
+  @media screen and (max-width: 1440px) {
+    width:100%;
+  }
+`;
