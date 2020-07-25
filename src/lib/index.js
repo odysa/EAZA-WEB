@@ -5,12 +5,42 @@
  * @Last Modified time: 2020-06-25 10:57:12
  */
 
+export const getBreadthList = (breadths) => {
+  //subject code
+  const type = {
+    P: "Physical Sci",
+    B: "Biological Sci",
+    S: "Social Sci",
+    C: "Com B",
+    A: "Com A",
+    L: "Literatures",
+    H: "Humanities",
+    N: "Natural Sci",
+    E: "Ethnic Studies",
+  };
+  //empty string, then return empty array
+  if (!breadths.length) return [];
+  //convert to list
+  const result = breadths.split("/").map((item) => type[item]);
+  return result;
+};
+
+export const getLevel = (level) => {
+  //level code of course
+  const type = {
+    E: "Elementary",
+    I: "Intermediate",
+    A: "Advanced",
+  };
+  return type[level];
+};
+
 export const getTermByProf = (name, grades) => {
   let result = [];
   for (let i = 0; i < grades.size; ++i) {
-    let sections = grades.get(i).get("sections");
+    const sections = grades.get(i).get("sections");
     for (let k = 0; k < sections.size; ++k) {
-      let profs = sections.get(k).get("profs");
+      const profs = sections.get(k).get("profs");
       let flag = 0;
       for (let j = 0; j < profs.size; ++j) {
         if (profs.get(j) === name) {
@@ -36,7 +66,7 @@ const accumulateGrades = (result, grade) => {
 };
 
 export const getGradeByProf = (name, grades, value) => {
-  let sections = grades.get("sections");
+  const sections = grades.get("sections");
   let result = {
     A: 0,
     AB: 0,
@@ -48,8 +78,8 @@ export const getGradeByProf = (name, grades, value) => {
     term: value,
   };
   for (let i = 0; i < sections.size; ++i) {
-    let item = sections.get(i);
-    let profs = item.get("profs");
+    const item = sections.get(i);
+    const profs = item.get("profs");
     for (let j = 0; j < profs.size; ++j) {
       let x = profs.get(j);
       if (x === name) {
@@ -75,7 +105,7 @@ export const getCumulativeGradeByProf = (name, grades, value) => {
     term: value,
   };
   for (let i = 0; i < grades.size; ++i) {
-    let sections = grades.get(i).get("sections");
+    const sections = grades.get(i).get("sections");
     for (let k = 0; k < sections.size; ++k) {
       const profs = sections.get(k).get("profs");
       let flag = 0;
@@ -92,35 +122,4 @@ export const getCumulativeGradeByProf = (name, grades, value) => {
   result.total =
     result.A + result.AB + result.B + result.BC + result.C + result.D;
   return result;
-};
-
-export const getBreadthList = (breadths) => {
-  //subject code
-  const type = {
-    P: "Physical Sci",
-    B: "Biological Sci",
-    S: "Social Sci",
-    C: "Com B",
-    A: "Com A",
-    L: "Literatures",
-    H: "Humanities",
-    N: "Natural Sci",
-    E: "Ethnic Studies",
-  };
-  //convert to list
-  let result = [];
-  breadths.foreach((item) => {
-    if (item !== "/") result.push(type[item]);
-  });
-  return result;
-};
-
-export const getLevel = (level) => {
-  //level code of course
-  const type = {
-    E: "Elementary",
-    I: "Intermediate",
-    A: "Advanced",
-  };
-  return type[level];
 };

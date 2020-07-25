@@ -14,7 +14,7 @@ const AboutCard = (props) => (
           <Card.Title>Aid your course serach</Card.Title>
           <Card.Text>
             Some features were built to help you explore courses!
-          </Card.Text>
+          </Card.Text>  
           <a href="/intro/intro.html">
             <ButtonCustom variant="primary">Check it out!</ButtonCustom>
           </a>
