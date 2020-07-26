@@ -9,10 +9,10 @@ import { Row, Col, Empty, Descriptions, Skeleton } from "antd";
 import { Collapse, ChartConent } from "./style";
 import Chart from "./chart";
 import { connect } from "react-redux";
+import cookies from "react-cookies";
 import TermSelect from "./courseSelect";
 import ProfSelect from "./profSelect";
 import * as actionCreater from "./store/actionCreater";
-import cookies from "react-cookies";
 import { getBreadthList, getLevel } from "../../lib";
 
 const { Panel } = Collapse;
@@ -113,12 +113,8 @@ class Content extends Component {
                   justifyContent: "space-around",
                 }}
               >
-                {currentGrades && currentGrades.get("total") > 0 && (
-                  <ProfSelect />
-                )}
-                {currentGrades && currentGrades.get("total") > 0 && (
-                  <TermSelect />
-                )}
+                <ProfSelect />
+                <TermSelect />
               </div>
               {currentGrades && currentGrades.get("total") > 0 && (
                 <Chart grades={currentGrades} />

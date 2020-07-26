@@ -37,7 +37,7 @@ Please go to the secure folder to update API url.
 * Search a course
 
 ```markdown
-www.eaza.cc/api/v1/search/<query>/<page>
+https://www.eaza.cc/api/v1/search/<query>/<page>
 ```
 
 | Fields | Type    | Description            |
@@ -48,7 +48,7 @@ www.eaza.cc/api/v1/search/<query>/<page>
 * Search course by breadths
 
 ```markdown
-www.eaza.cc/api/v1/breadth/<query>/<breadths>/<page>
+https://ww.eaza.cc/api/v1/breadth/<query>/<breadths>/<page>
 ```
 
 | Fields   | Type    | Description                                          |
@@ -72,7 +72,7 @@ www.eaza.cc/api/v1/breadth/<query>/<breadths>/<page>
 * Search a professor
 
 ```markdown
-www.eaza.cc/api/v1/prof/<name>
+https://www.eaza.cc/api/v1/prof/<name>
 ```
 
 | Fields | Type   | Description           |
@@ -82,7 +82,7 @@ www.eaza.cc/api/v1/prof/<name>
 * Get a course by its abbreviation and number
 
 ```markdown
-www.eaza.cc/get/<abbreviation>/<number>
+https://www.eaza.cc/get/<abbreviation>/<number>
 ```
 
 | Fields       | Type    | Description                                     |
@@ -96,6 +96,7 @@ www.eaza.cc/get/<abbreviation>/<number>
 
 - [x] More friendly mobile compatible design
 - [x] Add Google Analysis
+- [x] Restructure files and simplify code 
 - [ ] Course requirement graphs
 - [ ] ...
 

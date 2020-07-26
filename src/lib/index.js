@@ -37,14 +37,15 @@ export const getLevel = (level) => {
 
 export const getTermByProf = (name, grades) => {
   let result = [];
-  for (let i = 0; i < grades.size; ++i) {
-    const sections = grades.get(i).get("sections");
-    for (let k = 0; k < sections.size; ++k) {
-      const profs = sections.get(k).get("profs");
+
+  for (let grade of grades) {
+    const sections = grade.get("sections");
+    for (let section of sections) {
+      const profs = section.get("profs");
       let flag = 0;
-      for (let j = 0; j < profs.size; ++j) {
-        if (profs.get(j) === name) {
-          result.push(grades.get(i).get("semester"));
+      for (let prof of profs) {
+        if (prof === name) {
+          result.push(grade.get("semester"));
           flag = 1;
           break;
         }
@@ -65,61 +66,58 @@ const accumulateGrades = (result, grade) => {
   return result;
 };
 
-export const getGradeByProf = (name, grades, value) => {
-  const sections = grades.get("sections");
-  let result = {
-    A: 0,
-    AB: 0,
-    B: 0,
-    BC: 0,
-    C: 0,
-    D: 0,
-    total: 0,
-    term: value,
-  };
-  for (let i = 0; i < sections.size; ++i) {
-    const item = sections.get(i);
-    const profs = item.get("profs");
-    for (let j = 0; j < profs.size; ++j) {
-      let x = profs.get(j);
-      if (x === name) {
-        let grade = item.get("grade");
-        result = accumulateGrades(result, grade);
-      }
-    }
-  }
+const createDefaultGrade = (value) => ({
+  A: 0,
+  AB: 0,
+  B: 0,
+  BC: 0,
+  C: 0,
+  D: 0,
+  total: 0,
+  term: value,
+});
+
+//sum up
+const getSum = (result) => {
   result.total =
     result.A + result.AB + result.B + result.BC + result.C + result.D;
   return result;
 };
 
+// get grade of a professor in a semester
+export const getGradeByProf = (name, grades, value) => {
+  const sections = grades.get("sections");
+  let result = createDefaultGrade(value);
+
+  for (let item of sections) {
+    const profs = item.get("profs");
+    for (let profName of profs) {
+      if (profName === name) {
+        let grade = item.get("grade");
+        result = accumulateGrades(result, grade);
+      }
+    }
+  }
+  return getSum(result);
+};
+
+// get all grades of a professor 
 export const getCumulativeGradeByProf = (name, grades, value) => {
-  let result = {
-    A: 0,
-    AB: 0,
-    B: 0,
-    BC: 0,
-    C: 0,
-    D: 0,
-    total: 0,
-    term: value,
-  };
-  for (let i = 0; i < grades.size; ++i) {
-    const sections = grades.get(i).get("sections");
-    for (let k = 0; k < sections.size; ++k) {
-      const profs = sections.get(k).get("profs");
-      let flag = 0;
-      for (let j = 0; j < profs.size; ++j) {
-        if (profs.get(j) === name) {
-          const grade = sections.get(k).get("grade");
+  let result = createDefaultGrade(value);
+
+  for (let grade of grades) {
+    const sections = grade.get("sections");
+    for (let section of sections) {
+      const profs = section.get("profs");
+      for (let prof of profs) {
+        if (prof === name) {
+          const grade = section.get("grade");
           result = accumulateGrades(result, grade);
           break;
         }
       }
-      if (flag === 1) break;
     }
   }
-  result.total =
-    result.A + result.AB + result.B + result.BC + result.C + result.D;
-  return result;
+
+  return getSum(result);
 };
