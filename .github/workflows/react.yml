@@ -31,11 +31,11 @@ jobs:
         npm install && npm run build
   
     - name: Copy file to server
-        uses: wlixcc/SFTP-Deploy-Action@v1.0
-        with:
-          username: 'ubuntu'
-          server: '${{ secrets.SERVER_IP }}'
-          ssh_private_key: ${{ secrets.PRIVATE_KEY }}
-          local_path: './build/*'
-          remote_path: '/home/EAZA_Build'
-          args: '-o ConnectTimeout=5'
+      uses: wlixcc/SFTP-Deploy-Action@v1.0
+      with:
+        username: 'ubuntu'
+        server: '${{ secrets.SERVER_IP }}'
+        ssh_private_key: ${{ secrets.PRIVATE_KEY }}
+        local_path: './build/*'
+        remote_path: '/home/EAZA_Build'
+        args: '-o ConnectTimeout=5'
