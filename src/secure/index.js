@@ -4,4 +4,4 @@
  * @Last Modified by: Chengxu Bian
  * @Last Modified time: 2020-07-03 20:13:32
  */
-export const url = "https://www.eaza.cc/api/v1";
+export const url = "https://api.eaza.cc/v1";

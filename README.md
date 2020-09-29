@@ -11,7 +11,7 @@ This a frontend of website [EAZA](https://www.eaza.cc), which is a great platfor
 1. Clone this project to your PC
 
 ```bash
-git clone https://www.example.com
+git clone
 ```
 
 2. Run npm install in terminal to install required modules
@@ -37,7 +37,7 @@ Please go to the secure folder to update API url.
 * Search a course
 
 ```markdown
-https://www.eaza.cc/api/v1/search/<query>/<page>
+https://api.eaza.cc/v1/search/<query>/<page>
 ```
 
 | Fields | Type    | Description            |
@@ -48,7 +48,7 @@ https://www.eaza.cc/api/v1/search/<query>/<page>
 * Search course by breadths
 
 ```markdown
-https://ww.eaza.cc/api/v1/breadth/<query>/<breadths>/<page>
+https://api.eaza.cc/v1/breadth/<query>/<breadths>/<page>
 ```
 
 | Fields   | Type    | Description                                          |
@@ -72,7 +72,7 @@ https://ww.eaza.cc/api/v1/breadth/<query>/<breadths>/<page>
 * Search a professor
 
 ```markdown
-https://www.eaza.cc/api/v1/prof/<name>
+https://api.eaza.cc/v1/prof/<name>
 ```
 
 | Fields | Type   | Description           |
@@ -82,7 +82,7 @@ https://www.eaza.cc/api/v1/prof/<name>
 * Get a course by its abbreviation and number
 
 ```markdown
-https://www.eaza.cc/get/<abbreviation>/<number>
+https://api.eaza.cc/v1/get/<abbreviation>/<number>
 ```
 
 | Fields       | Type    | Description                                     |
