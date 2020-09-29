@@ -35,5 +35,5 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
     - name: Copy file to server
-    run: |
+      run: |
         aws s3 sync /build s3://home/ubuntu/EAZA_Build
