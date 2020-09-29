@@ -37,5 +37,5 @@ jobs:
         server: '${{ secrets.SERVER_IP }}'
         ssh_private_key: ${{ secrets.PRIVATE_KEY }}
         local_path: './build/*'
-        remote_path: '/home/EAZA_Build'
+        remote_path: '/home/ubuntu/EAZA_Build'
         args: '-o ConnectTimeout=5'
