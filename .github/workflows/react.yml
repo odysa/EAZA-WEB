@@ -25,7 +25,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     
-    - name: Copy file to server
+    - name: Pack website
       run: |
         npm install && npm run build
 
@@ -38,4 +38,4 @@ jobs:
 
     - name: Copy file to server
       run: |
-        aws s3 sync ./build s3://home/ubuntu/EAZA_Build
+        aws ec2 sync ./build ec2://home/ubuntu/EAZA_Build
