@@ -25,10 +25,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    
-    - name: Pack website
+    - name: get cache
+      uses: c-hive/gha-yarn-cache@v1
+
+    - name: Build package
       run: |
-        npm install && npm run build
+        yarn --frozen-lockfile --non-interactive && yarn build
+      env:
+        CI: true
   
     - name: Copy file to server
       uses: wlixcc/SFTP-Deploy-Action@v1.0
