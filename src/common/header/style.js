@@ -30,7 +30,7 @@ export const NormalContainer = styled.div`
   }
 `;
 export const Logo = styled.a.attrs({
-  href: "#",
+  href: "/",
 })`
   display: inline-block;
   text-decoration: none;
